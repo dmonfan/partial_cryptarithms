@@ -1,6 +1,6 @@
 '''Test if String is a Digit'''
 def str_is_digit(x):
-	'''Throw out non-digit length strings'''
+	#Throw out non-digit length strings
 	if len(x) > 1:
 		return False
 
@@ -11,11 +11,7 @@ def str_is_digit(x):
 	except ValueError:
 		return False
 
-	#Redundant code as a number that is length 1 is a digit
-	if(0 <= x and x < 10):
-		return True
-
-	return False
+	return True
 
 #string, non-digit, float, integer, digit, symbol
 test_list = ["a","10","1.1","-1","4", "+"]
