@@ -8,4 +8,4 @@ TWO X TWO = THREE
 
 When only a few of the digits have been substituted, I call it a partial cryptarithm.
 
-Run with python3 partial_cryptarithm.py
+Run with python3 partial_cryptarithms.py
