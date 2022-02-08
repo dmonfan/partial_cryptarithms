@@ -1,4 +1,9 @@
 from random import randint
-x = randint(100,999)
-x_digit_list = set(list(str(x)))
-print(x_digit_list)
+
+def unique_digits(x):
+	x_digit_list = set(str(x))
+	return x_digit_list
+
+if __name__ == '__main__':
+	x = randint(100,999)
+	print(unique_digits(x))
