@@ -11,10 +11,20 @@ class multiplication_problem():
 		self.z = self.x * self.y
 
 	def f(self):
-		return "   " + '{:>3}'.format(self.x) + "\nX  " + '{:>3}'.format(self.y)
+		if(self.size <= 2):
+			return "  " + '{:>2}'.format(self.x) + "\nX " + '{:>2}'.format(self.y)
+		elif(self.size == 3):
+			return "   " + '{:>3}'.format(self.x) + "\nX  " + '{:>3}'.format(self.y)
+		else:
+			return "    " + '{:>4}'.format(self.x) + "\nX   " + '{:>4}'.format(self.y)
 
 	def a(self):
-		return '{:>6}'.format(self.z)
+		if(self.size <= 2):
+			return '{:>4}'.format(self.z)
+		elif(self.size == 3):
+			return '{:>6}'.format(self.z)
+		else:
+			return '{:>8}'.format(self.z)
 
 if __name__ == '__main__':
 	problem = multiplication_problem(3)
@@ -22,5 +32,9 @@ if __name__ == '__main__':
 	print(problem.a())
 
 	problem = multiplication_problem(2)
+	print(problem.f())
+	print(problem.a())
+
+	problem = multiplication_problem(4)
 	print(problem.f())
 	print(problem.a())
