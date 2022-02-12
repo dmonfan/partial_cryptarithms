@@ -3,7 +3,7 @@ from generate_multiplication_problem import multiplication_problem
 from generate_multiplication_cryptarithm_problem_container import multiplication_cryptarithm_problem_container
 from random import choice
 
-problem = multiplication_problem()
+problem = multiplication_problem(3)
 digits1 = unique_digits(problem.x)
 digits2 = unique_digits(problem.y)
 
@@ -26,7 +26,7 @@ for str_problem in str_problems:
 		str_problem = str_problem.replace(k, v)
 	rep_str_problems.append(str_problem)
 
-partial_cryptarithm = multiplication_cryptarithm_problem_container(rep_str_problems[0],rep_str_problems[1],rep_str_problems[2])
+partial_cryptarithm = multiplication_cryptarithm_problem_container(rep_str_problems[0],rep_str_problems[1],rep_str_problems[2],3)
 
 print("\nWhat are a and b?\n")
 
