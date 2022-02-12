@@ -3,7 +3,6 @@ from generate_multiplication_problem import multiplication_problem
 from generate_multiplication_cryptarithm_problem_container import multiplication_cryptarithm_problem_container
 from random import choice
 
-
 problem = multiplication_problem()
 digits1 = unique_digits(problem.x)
 digits2 = unique_digits(problem.y)
@@ -13,6 +12,8 @@ digits12 = digits1.union(digits2)
 sub1 = digits12.pop()
 sub2 = digits12.pop()
 
+sub_dict = {sub1: "a", sub2: "b"}
+
 str_problem_x = str(problem.x)
 str_problem_y = str(problem.y)
 str_problem_z = str(problem.z)
@@ -21,9 +22,9 @@ rep_str_problems = []
 
 str_problems = [str_problem_x, str_problem_y, str_problem_z]
 for str_problem in str_problems:
-	rep_string1 = str_problem.replace(sub1, "a")
-	rep_string2 = rep_string1.replace(sub2, "b")
-	rep_str_problems.append(rep_string2)
+	for k, v in sub_dict.items():
+		str_problem = str_problem.replace(k, v)
+	rep_str_problems.append(str_problem)
 
 partial_cryptarithm = multiplication_cryptarithm_problem_container(rep_str_problems[0],rep_str_problems[1],rep_str_problems[2])
 
