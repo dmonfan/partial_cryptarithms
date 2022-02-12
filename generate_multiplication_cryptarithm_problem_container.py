@@ -1,6 +1,7 @@
 class multiplication_cryptarithm_problem_container():
 
-	def __init__(self, crypt_x, crypt_y, crypt_z):
+	def __init__(self, crypt_x, crypt_y, crypt_z, size):
+		self.size = size
 		self.x = crypt_x
 		self.y = crypt_y
 		self.z = crypt_z
@@ -16,6 +17,6 @@ if __name__ == '__main__':
 	string1 = "ab"
 	string2 = "bb"
 	string3 = "bba"
-	container = multiplication_cryptarithm_problem_container(string1, string2, string3)
+	container = multiplication_cryptarithm_problem_container(string1, string2, string3, 2)
 	print(container.f())
 	print(container.a())
