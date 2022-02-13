@@ -15,6 +15,49 @@ def difficulty_to_subs(num):
 	subs = int(i / 4) + 1
 	return subs
 
+def make_partial_cryptarithm(difficulty):
+
+	difficulty = int(difficulty)
+	digits = difficulty_to_digits(difficulty)
+	subs = difficulty_to_subs(difficulty)
+
+	partial_cryptarithm_container = multiplication_cryptarithm_problem_container(None, None, None, digits, None)
+	digits1 = unique_digits(partial_cryptarithm_container.x)
+	digits2 = unique_digits(partial_cryptarithm_container.y)
+
+	digits12 = digits1.union(digits2)
+
+	sub_dict = {}
+
+	if (subs >= len(digits12)):
+		subs = len(digits12)
+
+	letters = {"a", "b", "c", "d"}
+
+	for sub in range(subs):
+		sub_dict[digits12.pop()] = letters.pop()
+
+	str_problem_x = str(partial_cryptarithm_container.x)
+	str_problem_y = str(partial_cryptarithm_container.y)
+	str_problem_z = str(partial_cryptarithm_container.z)
+
+	rep_str_problems = []
+
+	str_problems = [str_problem_x, str_problem_y, str_problem_z]
+	for str_problem in str_problems:
+		for k, v in sub_dict.items():
+			str_problem = str_problem.replace(k, v)
+		rep_str_problems.append(str_problem)
+
+	print(rep_str_problems[2])
+
+	partial_cryptarithm_container.a = rep_str_problems[0]
+	partial_cryptarithm_container.b = rep_str_problems[1]
+	partial_cryptarithm_container.c = rep_str_problems[2]
+	partial_cryptarithm_container.sub_dict = sub_dict
+
+	return partial_cryptarithm_container
+
 replay = True
 while(replay):
 
@@ -30,61 +73,29 @@ while(replay):
 	if(difficulty == 'q'):
 		break
 
-	difficulty = int(difficulty)
-	digits = difficulty_to_digits(difficulty)
-	subs = difficulty_to_subs(difficulty)
-
-	problem = multiplication_problem(digits)
-	digits1 = unique_digits(problem.x)
-	digits2 = unique_digits(problem.y)
-
-	digits12 = digits1.union(digits2)
-
-	sub_dict = {}
-
-	if (subs >= len(digits12)):
-		subs = len(digits12)
-
-	letters = {"a", "b", "c", "d"}
-
-	for sub in range(subs):
-		sub_dict[digits12.pop()] = letters.pop()
-
-	str_problem_x = str(problem.x)
-	str_problem_y = str(problem.y)
-	str_problem_z = str(problem.z)
-
-	rep_str_problems = []
-
-	str_problems = [str_problem_x, str_problem_y, str_problem_z]
-	for str_problem in str_problems:
-		for k, v in sub_dict.items():
-			str_problem = str_problem.replace(k, v)
-		rep_str_problems.append(str_problem)
-
-	partial_cryptarithm = multiplication_cryptarithm_problem_container(rep_str_problems[0],rep_str_problems[1],rep_str_problems[2], digits)
+	partial_cryptarithm = make_partial_cryptarithm(difficulty)
 
 	print()
 
-	for v in sub_dict.values():
+	for v in partial_cryptarithm.sub_dict.values():
 		print(v + " = ?")
 		
 	print()
 
-	print(partial_cryptarithm.f())
-	print(partial_cryptarithm.a())
+	print(partial_cryptarithm.question_t())
+	print(partial_cryptarithm.answer_t())
 
 	print()
 
 	if(input("Press return to reveal answer: \n") == 'q'):
 		break
 
-	for k, v in sub_dict.items():
+	for k, v in partial_cryptarithm.sub_dict.items():
 		print(v + " = " + k)
 	print()
 
-	print(problem.f())
-	print(problem.a())
+	print(partial_cryptarithm.question())
+	print(partial_cryptarithm.answer())
 
 	print()
 

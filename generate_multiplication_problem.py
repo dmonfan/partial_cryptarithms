@@ -10,7 +10,7 @@ class multiplication_problem():
 		self.y = randint(lower, upper)
 		self.z = self.x * self.y
 
-	def f(self):
+	def question(self):
 		if(self.size <= 2):
 			return "  " + '{:>2}'.format(self.x) + "\nX " + '{:>2}'.format(self.y)
 		elif(self.size == 3):
@@ -18,7 +18,7 @@ class multiplication_problem():
 		else:
 			return "    " + '{:>4}'.format(self.x) + "\nX   " + '{:>4}'.format(self.y)
 
-	def a(self):
+	def answer(self):
 		if(self.size <= 2):
 			return '{:>4}'.format(self.z)
 		elif(self.size == 3):
@@ -28,13 +28,13 @@ class multiplication_problem():
 
 if __name__ == '__main__':
 	problem = multiplication_problem(3)
-	print(problem.f())
-	print(problem.a())
+	print(problem.question())
+	print(problem.answer())
 
 	problem = multiplication_problem(2)
-	print(problem.f())
-	print(problem.a())
+	print(problem.question())
+	print(problem.answer())
 
 	problem = multiplication_problem(4)
-	print(problem.f())
-	print(problem.a())
+	print(problem.question())
+	print(problem.answer())
