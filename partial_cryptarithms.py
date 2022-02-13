@@ -1,6 +1,7 @@
 from determine_unique_digits import unique_digits
 from generate_multiplication_problem import multiplication_problem
 from generate_multiplication_cryptarithm_problem_container import multiplication_cryptarithm_problem_container
+from str_is_digit_input import str_is_digit
 from random import choice
 
 difficulty_list = [0, 1, 2, 3, -1, 4, 5, 6, -1, -1, 7, 8, -1, -1, -1, 9]
@@ -15,7 +16,14 @@ def difficulty_to_subs(num):
 	subs = int(i / 4) + 1
 	return subs
 
-difficulty = input("Set difficulty (0-9): ")
+notset = True
+while notset:
+	difficulty = input("Set difficulty (0-9): ")
+	if(str_is_digit(difficulty) == True):
+		notset = False
+	else:
+		print("Type only a digit 0-9.")
+
 difficulty = int(difficulty)
 digits = difficulty_to_digits(difficulty)
 subs = difficulty_to_subs(difficulty)
