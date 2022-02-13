@@ -21,10 +21,14 @@ while(replay):
 	notset = True
 	while notset:
 		difficulty = input("Set difficulty (0-9): ")
+		if(difficulty == 'q'):
+			break
 		if(str_is_digit(difficulty) == True):
 			notset = False
 		else:
 			print("Type only a digit 0-9.")
+	if(difficulty == 'q'):
+		break
 
 	difficulty = int(difficulty)
 	digits = difficulty_to_digits(difficulty)
@@ -72,7 +76,8 @@ while(replay):
 
 	print()
 
-	input("Press return to reveal answer: \n")
+	if(input("Press return to reveal answer: \n") == 'q'):
+		break
 
 	for k, v in sub_dict.items():
 		print(v + " = " + k)
