@@ -44,3 +44,10 @@ if __name__ == '__main__':
 	container3 = multiplication_cryptarithm_problem_container(string7, string8, string9, 4)
 	print(container3.f())
 	print(container3.a())
+
+	string10 = "a"
+	string11 = "b"
+	string12 = "ab"
+	container4 = multiplication_cryptarithm_problem_container(string10, string11, string12, 1)
+	print(container4.f())
+	print(container4.a())
