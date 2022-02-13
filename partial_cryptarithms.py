@@ -2,7 +2,6 @@ from determine_unique_digits import unique_digits
 from generate_multiplication_problem import multiplication_problem
 from generate_multiplication_cryptarithm_problem_container import multiplication_cryptarithm_problem_container
 from str_is_digit_input import str_is_digit
-from random import choice
 
 difficulty_list = [0, 1, 2, 3, -1, 4, 5, 6, -1, -1, 7, 8, -1, -1, -1, 9]
 
