@@ -49,8 +49,6 @@ def make_partial_cryptarithm(difficulty):
 			str_problem = str_problem.replace(k, v)
 		rep_str_problems.append(str_problem)
 
-	print(rep_str_problems[2])
-
 	partial_cryptarithm_container.a = rep_str_problems[0]
 	partial_cryptarithm_container.b = rep_str_problems[1]
 	partial_cryptarithm_container.c = rep_str_problems[2]
